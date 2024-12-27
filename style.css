@@ -1,5 +1,8 @@
 .body{
     background-color: black;
+     margin-left: 20px;
+    overflow: auto;
+    overflow-x: hidden;
 }
 #headerl{
     margin-left: 10 !important;
