@@ -1,0 +1,72 @@
+.body{
+    background-color: black;
+    margin-left: 20px;
+}
+#headerl{
+    margin-left: 10 !important;
+}
+#name{
+    font-family: 'Brush Script MT', cursive;
+}
+#section1{
+    height:  630px;
+    background-color: black;
+}
+#profile{
+    margin-top:40px;
+     height:100%; 
+     width:100%;
+}
+#contents{
+    margin-top: 200px;
+}
+#content1{
+    font-weight: 1000;
+}
+#content2{
+    font-weight: 1000;
+    font-size: x-large
+}
+#section2{
+    background-color: black;
+    height: 630px;
+}
+#Skills{
+    padding-right:15px ;
+    padding-top:150px;
+    font-weight: 1000;
+    text-align: center;
+}
+#section3{
+    background-color: black;
+    height: 630px;
+}
+#r2s{
+    border-color: #dc3545;
+    background-color: black;
+}
+#card1{
+    margin-top:50px ;
+}
+#Projects{
+    padding-right:15px ;
+    padding-top:100px;
+    font-weight: 1000;
+    text-align: center;
+}
+#section4{
+    background-color: black;
+    height: 650px;
+}
+
+
+#Contact{
+    padding-right:15px ;
+    padding-top:150px;
+    font-weight: 1000;
+    text-align: center;
+}
+#instagram{
+       color: #dc3545;
+     
+}
