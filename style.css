@@ -141,6 +141,12 @@ header {
   border-radius: 10px;
 }
 
+/* Visibility Fallbacks for Animations */
+.section-title, .reveal-text, .skill-card, .project-card, .contact-links a {
+  opacity: 1;
+  visibility: visible;
+}
+
 .hero-image {
   width: 100%;
   height: auto;
@@ -155,31 +161,62 @@ header {
 
 /* Skills Section */
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  padding: 2.5rem 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  min-height: 100px;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.skills-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .skill-card {
-  background: var(--glass-bg);
+  background: #111;
   border: 1px solid var(--glass-border);
-  padding: 2.5rem 1.5rem;
-  text-align: center;
-  border-radius: 12px;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-radius: 50px;
   transition: var(--transition-smooth);
+  flex-shrink: 0;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .skill-card:hover {
   border-color: var(--accent-color);
-  background: rgba(255, 62, 62, 0.05);
-  transform: translateY(-10px);
+  background: rgba(255, 62, 62, 0.1);
+  transform: translateY(-5px);
 }
 
-.skill-card img {
-  width: 3.5rem;
-  height: 3.5rem;
-  margin-bottom: 1rem;
+.skill-card img, .skill-card i {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-primary);
 }
 
 /* Projects Section */

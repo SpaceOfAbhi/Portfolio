@@ -31,10 +31,13 @@ interactiveElements.forEach(el => {
     });
 });
 
-// Page Load Animations
-window.addEventListener('load', () => {
+// Animation Init
+const initAnimations = () => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const tl = gsap.timeline();
 
+    // Initial Entrance
     tl.from('header', {
         y: -100,
         opacity: 0,
@@ -65,61 +68,53 @@ window.addEventListener('load', () => {
         duration: 0.8,
         ease: 'power2.out'
     }, '-=0.5');
-});
 
-// Scroll animations for sections
-gsap.registerPlugin(ScrollTrigger);
-
-// Section Titles/Text Reveal
-const revealText = document.querySelectorAll('.section-title');
-revealText.forEach(text => {
-    gsap.from(text, {
-        scrollTrigger: {
-            trigger: text,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
+    // Section Titles/Text Reveal
+    const revealText = document.querySelectorAll('.section-title');
+    revealText.forEach(text => {
+        gsap.from(text, {
+            scrollTrigger: {
+                trigger: text,
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
     });
-});
 
-// Skills Section Animation
-gsap.from('.skill-card', {
-    scrollTrigger: {
-        trigger: '#skills',
-        start: 'top 70%',
-    },
-    y: 50,
-    opacity: 0,
-    stagger: 0.1,
-    duration: 1,
-    ease: 'power3.out'
-});
+    // Skills Section - Static and visible by default
+    // (Animations removed to fix visibility issues on local file loads)
 
-// Project Card Animation
-gsap.from('.project-card', {
-    scrollTrigger: {
-        trigger: '#projects',
-        start: 'top 70%',
-    },
-    x: -100,
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power4.out'
-});
+    // Project Card Animation
+    gsap.from('.project-card', {
+        scrollTrigger: {
+            trigger: '#projects',
+            start: 'top 80%',
+        },
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power4.out'
+    });
 
-// Contact Section Reveal
-gsap.from('.contact-links a', {
-    scrollTrigger: {
-        trigger: '#contact',
-        start: 'top 75%',
-    },
-    y: 30,
-    opacity: 0,
-    stagger: 0.15,
-    duration: 1,
-    ease: 'back.out(1.7)'
+    // Contact Section Reveal
+    gsap.from('.contact-links a', {
+        scrollTrigger: {
+            trigger: '#contact',
+            start: 'top 85%',
+        },
+        y: 30,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 1,
+        ease: 'back.out(1.7)'
+    });
+};
+
+// Use DOMContentLoaded and a small timeout to ensure layout is calculated
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(initAnimations, 100);
 });
